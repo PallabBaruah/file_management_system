@@ -1,0 +1,275 @@
+<?php
+ini_set('display_errors',0);
+
+class User{
+
+
+		public static $TABLE_NAME = "users";
+
+		private $id;
+
+		private $email;
+
+		private $username;
+
+		private $password;
+
+		private $user_type;
+
+		private $name;
+
+		private $contact_no;
+
+		private $state;
+
+		private $city;
+
+		private $pin_code;
+
+		private $is_password_set;
+
+
+
+		public function setId($id){
+
+			$this->id = $id;
+
+		}
+
+		public function getId(){
+
+			return $this->id;
+		}
+
+
+		public function setEmail($email){
+
+			$this->email = $email;
+
+		}
+
+		public function getEmail(){
+
+			return $this->email;
+		}
+
+
+		public function setUsername($username){
+
+			$this->username = $username;
+
+		}
+
+		public function getUsername(){
+
+			return $this->username;
+		}
+
+
+		public function setPassword($password){
+
+			$this->password = $password;
+
+		}
+
+		public function getPassword(){
+
+			return $this->password;
+		}
+
+
+
+		public function setUserType($user_type){
+
+			$this->user_type = $user_type;
+
+		}
+
+		public function getUserType(){
+
+			return $this->user_type;
+		}
+
+
+		public function setName($name){
+
+			$this->name = $name;
+
+		}
+
+		public function getName(){
+
+			return $this->name;
+		}
+
+
+		public function setContactNo($contact_no){
+
+			$this->contact_no = $contact_no;
+
+		}
+
+		public function getContactNo(){
+
+			return $this->contact_no;
+		}
+
+
+		public function setState($state){
+
+			$this->state = $state;
+
+		}
+
+		public function getState(){
+
+			return $this->state;
+
+		}
+
+		public function setCity($city){
+
+			$this->city = $city;
+
+		}
+
+		public function getCity(){
+
+			return $this->city;
+		}
+
+		public function setPin($pin_code){
+
+			$this->pin_code = $pin_code;
+
+		}
+
+		public function getPin(){
+
+			return $this->pin_code;
+		}	
+
+		public function setIsPassowordSet($is_password_set){
+
+			$this->is_password_set = $is_password_set;
+
+		}
+
+		public function getIsPasswordSet(){
+
+			return $this->is_password_set;
+		}
+
+
+}
+
+
+class UserDAO{
+
+
+
+
+
+		public function insert_users($userClass_obj){
+
+
+			$SQL_INSERT = "INSERT INTO ".User::$TABLE_NAME."(
+
+			email,
+			username,
+			password,
+			user_type,
+			name,
+			contact_no,
+			state,
+			city,
+			pin,
+			is_password_set	
+
+			)";
+
+
+			$SQL_INSERT .= " VALUES (
+
+			:email,
+			:username,
+			:password,
+			:user_type,
+			:name,
+			:contact_no,
+			:state,
+			:city,
+			:pin,
+			:is_password_set	
+			
+			)";
+
+			
+			$database = new Database();
+
+			$database->query($SQL_INSERT);
+
+			$database->bind(':email',$userClass_obj->getEmail());
+
+			$database->bind(':username',$userClass_obj->getUsername());
+
+			$database->bind(':password',$userClass_obj->getPassword());
+
+			$database->bind(':user_type',$userClass_obj->getUserType());
+
+			$database->bind(':name',$userClass_obj->getName());
+
+			$database->bind(':contact_no',$userClass_obj->getContactNo());
+
+			$database->bind(':state',$userClass_obj->getState());
+
+			$database->bind(':city',$userClass_obj->getCity());
+
+			$database->bind(':pin',$userClass_obj->getPin());
+
+			$database->bind(':is_password_set',$userClass_obj->getIsPasswordSet());
+
+
+			$database->execute();
+
+			$result = $database->lastInsertId();
+
+			return $result;
+	
+
+		}
+
+
+		
+		
+
+
+
+
+
+
+
+}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+

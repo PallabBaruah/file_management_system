@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.red{
+	color:#F00;
+}
+
+.orange{
+	color:#903;
+}
+
+.green{
+	color:#393;
+}
+
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+.welcome_msg {
+	color:#900 !important;
+}
+.logout{
+	color:#F00;
+
+}
+input[readonly] {
+     cursor: pointer;
+}

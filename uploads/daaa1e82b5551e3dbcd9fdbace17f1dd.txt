@@ -1,0 +1,7 @@
+user name: ekaayanpanel
+
+password: Cpanel@ekayaan1
+
+FTP:
+uname: root@ekaayan.com
+pword: ekaayan!@34
